@@ -6,6 +6,13 @@ Integrantes:
  - Juan Manuel Citta 24.123.022-6
  - João Pedro Bazoli Palma 24.123.041-6
 
+
+
+<img width="597" height="681" alt="Diagrama sem nome drawio" src="https://github.com/user-attachments/assets/97d7f75e-0684-4978-84d1-348463447a23" />
+
+<br>
+
+
 | Identificação | UC - 01 |
 |---|---|
 | Função | Carregar Lista de Candidatos | 
@@ -61,7 +68,8 @@ Integrantes:
 
 | Identificação | UC - 06 |
 |---|---|
-| Função | Confirmar o voto no candidato selecionado | 
+| Função | Confirmar o voto no candidato selecionado | [Uploading sdsadas.drawio…]()
+
 | Atores | Eleitor, Urna | 
 | Prioridade | Row 1, Col 2 | 
 | Pré-Condição | Row 2, Col 2 | 
