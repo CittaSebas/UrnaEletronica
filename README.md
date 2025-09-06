@@ -11,16 +11,13 @@ Integrantes:
 
 <br>
 
-[Uploading sdsadas.drawio…]()
-<br>
-
 | Identificação | UC - 01 |
 |---|---|
 | Função | Cadastrar a Urna | 
 | Atores | Gerente | 
 | Prioridade | Essencial | 
 | Pré-Condição | Urna em estado funcional | 
-| Pós-Condição | Urna terá as informações cadastradas nela | 
+| Pós-Condição | Urna terá as informações cadastradas nela e está pronta para ser enviada ao local de votação | 
 | Fluxo Principal | * O gerente acessa o sistema da urna <br> * O gerente entra no módulo UEg <br> * O gerente seleciona região <br> * O gerente entra com ID de uma Urna da região <br> * O gerente carrega a Lista de Candidatos da Região na Urna    |
 
 | Identificação  | UC-02 |
@@ -29,7 +26,7 @@ Integrantes:
 | Atores | Gerente | 
 | Prioridade | Essencial | 
 | Pré-Condição | Votação concluída | 
-| Pós-Condição | Sera gerado um relatório com os resultados da votação, <br> apresentados os detalhes em formato de tabela ou gráficos | 
+| Pós-Condição | Será gerado um relatório com os resultados da votação, <br> apresentando os detalhes em formato de tabela ou gráficos | 
 | Fluxo Principal | * O gerente acessa o sistema <br> * O gerente entra no módulo UEg <br> * O gerente separa os resultados da votação por UEv <br> * O gerente totaliza os resultados <br> * O gerente seleciona o modo de exibição do relatório <br> * O gerente gera o relatório    |
 
 | Identificação | UC - 03 |
@@ -54,16 +51,6 @@ Integrantes:
 
 
 | Identificação | UC - 05 |
-|---|---|
-| Função | Exibir candidatos | 
-| Atores |  Urna | 
-| Prioridade | Essencial | 
-| Pré-Condição | A urna estar validade | 
-| Pós-Condição | Urna exibira a lista de candidatos para o elitor | 
-| Fluxo Principal | * A urna exibe os candidatos disponíveis para voto|
-
-
-| Identificação | UC - 06 |
 |---|---|
 | Função | Selecionar candidato | 
 | Atores | Eleitor, Urna | 
