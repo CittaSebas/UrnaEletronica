@@ -21,7 +21,7 @@ Integrantes:
 | Prioridade | Essencial | 
 | Pré-Condição | Urna em estado funcional | 
 | Pós-Condição | Urna terá as informações cadastradas nela | 
-| Fluxo Principal | * O gerente acessa o sistema <br> * O gerente entra no módulo UEg <br> * O gerente seleciona região <br> * O gerente entra com ID de uma Urna da região <br> * O gerente carrega a Lista de Candidatos da Região na Urna    |
+| Fluxo Principal | * O gerente acessa o sistema da urna <br> * O gerente entra no módulo UEg <br> * O gerente seleciona região <br> * O gerente entra com ID de uma Urna da região <br> * O gerente carrega a Lista de Candidatos da Região na Urna    |
 
 | Identificação  | UC-02 |
 |---|---|
