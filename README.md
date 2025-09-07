@@ -7,7 +7,10 @@ Integrantes:
  - João Pedro Bazoli Palma 24.123.041-6
 
 
-<img width="568" height="691" alt="diagrama_urna drawio" src="https://github.com/user-attachments/assets/418aa279-0878-4d51-bfd3-460352e56846" />
+<br>
+
+<img width="568" height="691" alt="Diagrama_urna drawio" src="https://github.com/user-attachments/assets/903618ed-f35c-475b-a544-31efa345730e" />
+
 
 <br>
 
