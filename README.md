@@ -65,3 +65,10 @@ Integrantes:
 | Fluxo Secundário [FS02] | * Eleitor insere um número não registrado a nenhum partido <br> * A urna informa que o voto será nulo e pede para o eleitor apertar o botão "CONFIRMA" <br> * A urna registra o voto nulo e registra separadamente que o eleitor já votou na UEv | 
 | Fluxo Secundário [FS03] | * Eleitor insere apenas o número do partido e aperta "CONFIRMA" <br> * A urna informa que o voto será de legenda e pede para o eleitor apertar o botão "CONFIRMA" * A urna registra o voto de legenda e registra separadamente que o eleitor já votou na UEv | 
 | Fluxo Secundário [FS04] | * Eleitor aperta no botão "CORRIGE" <br> * A urna apagará o número inserido | 
+
+
+<br>
+**Diagrama de Classes**
+<br>
+<img width="600" height="594" alt="Diagrama_de_classes drawio" src="https://github.com/user-attachments/assets/7de2c635-8c7a-4d55-86d9-317b5f968f3e" />
+
