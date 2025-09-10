@@ -67,7 +67,7 @@ Integrantes:
 | Fluxo Secundário [FS04] | * Eleitor aperta no botão "CORRIGE" <br> * A urna apagará o número inserido | 
 
 
-<br>
+<br><br>
 **Diagrama de Classes**
 <br>
 <img width="600" height="594" alt="Diagrama_de_classes drawio" src="https://github.com/user-attachments/assets/7de2c635-8c7a-4d55-86d9-317b5f968f3e" />
