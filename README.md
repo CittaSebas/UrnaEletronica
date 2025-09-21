@@ -75,4 +75,130 @@ Integrantes:
 <br><br>
 **Diagrama de Sequência**
 <br>
-<img width="384" height="800" alt="image" src="https://github.com/user-attachments/assets/f9526202-5d46-4358-9e99-d318e18b540b" />
+```mermaid
+sequenceDiagram
+    %% UC-01 – Cadastrar a Urna
+    actor Gerente
+    participant Sistema
+    participant UEg
+
+    Gerente->>+Sistema: acessarSistema()
+    Sistema-->>-Gerente: exibeMenu()
+
+    Gerente->>+UEg: acessarModulo()
+    UEg-->>-Gerente: exibeOpcoes()
+
+    Gerente->>+UEg: selecionarRegiao()
+    UEg-->>-Gerente: listaUrnasRegiao()
+
+    Gerente->>+UEg: inserirIDUrna(id_urna)
+    UEg-->>-Gerente: urnaSelecionada()
+
+    Gerente->>+UEg: carregarListaCandidatos(regiao)
+    UEg-->>-Gerente: urnaPronta()
+```
+```mermaid
+sequenceDiagram
+    actor Gerente
+    participant Sistema
+    participant UEg
+Gerente->>+Sistema: acessarSistema()
+    Sistema-->>-Gerente: exibeMenu()
+
+    Gerente->>+UEg: acessarModulo()
+    UEg-->>-Gerente: exibeOpcoes()
+
+    Gerente->>+UEg: separarResultadosPorUEv()
+    UEg-->>-Gerente: resultadosSeparados()
+
+    Gerente->>+UEg: totalizarResultados()
+    UEg-->>-Gerente: totaisCalculados()
+
+    Gerente->>+UEg: selecionarModoExibicao()
+    UEg-->>-Gerente: preparaRelatorio()
+
+    Gerente->>+UEg: gerarRelatorio()
+    UEg-->>-Gerente: relatorioGerado()
+```
+
+```mermaid
+sequenceDiagram
+    actor Mesario
+    participant Urna
+    participant ArquivoLocal
+
+    Mesario->>+Urna: acessarSistema()
+    Urna-->>-Mesario: exibeInformacoes()
+
+    Mesario->>+Urna: compararInformacoes()
+    alt Dados Congruentes (Fluxo Principal)
+        Mesario->>+ArquivoLocal: registrarUrnaFuncional()
+        ArquivoLocal-->>-Mesario: statusOK
+    else Dados Incongruentes [FS01]
+        Mesario->>+ArquivoLocal: registrarUrnaNaoFuncional()
+        ArquivoLocal-->>-Mesario: statusOK
+        Mesario->>+Gerente: informarIncongruencia()
+    end
+
+```
+
+```mermaid
+sequenceDiagram
+    actor Mesario
+    participant Urna
+    participant ArquivoLocal
+    Mesario->>+Urna: solicitarIdentificacaoEleitor()
+    Urna-->>-Mesario: solicitarNumeroTitulo()
+
+    Mesario->>+Urna: inserirNumeroTitulo(numero)
+    Urna->>+UEg: validarNumeroTitulo(numero)
+    UEg-->>-Urna: validacaoOK
+
+    Urna-->>-Mesario: autorizacaoDeVoto()
+    Mesario->>+Eleitor: autorizarVoto()
+
+```
+
+```mermaid
+sequenceDiagram
+    actor Eleitor
+    participant UEv
+
+    Eleitor->>+Urna: inserirNumeroPartido(numero)
+    Urna-->>-Eleitor: exibeNomePartido(partido)
+
+    Eleitor->>+Urna: inserirNumeroCandidato(numero)
+    Urna-->>-Eleitor: exibeDadosCandidato(nome, foto)
+
+    alt Voto em Candidato (Fluxo Principal)
+        Eleitor->>+Urna: confirmarVoto()
+        Urna->>Urna: registrarVoto(candidato)
+        Urna->>+UEv: registrarEleitorVotou(id_eleitor)
+        UEv-->>-Urna: statusOK
+        Urna-->>-Eleitor: emiteSomConfirmacao()
+
+    else Voto em Branco [FS01]
+        Eleitor->>+Urna: pressionarBranco()
+        Urna-->>-Eleitor: solicitaConfirmacao()
+        Eleitor->>+Urna: confirmarVoto()
+        Urna->>Urna: registrarVotoBranco()
+        Urna->>+UEv: registrarEleitorVotou(id_eleitor)
+        UEv-->>-Urna: statusOK
+        Urna-->>-Eleitor: emiteSomConfirmacao()
+
+    else Voto Nulo [FS02]
+        Eleitor->>+Urna: inserirNumeroInvalido()
+        Urna-->>-Eleitor: informaVotoNulo()
+        Eleitor->>+Urna: confirmarVoto()
+        Urna->>Urna: registrarVotoNulo()
+        Urna->>+UEv: registrarEleitorVotou(id_eleitor)
+        UEv-->>-Urna: statusOK
+        Urna-->>-Eleitor: emiteSomConfirmacao()
+    end
+
+    opt Correção [FS04]
+        Eleitor->>+Urna: pressionarCorrige()
+        Urna->>Urna: limparDados()
+        Urna-->>-Eleitor: exibeTelaInicial()
+    end
+```
