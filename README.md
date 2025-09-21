@@ -72,3 +72,7 @@ Integrantes:
 <br>
 <img width="600" height="594" alt="Diagrama_de_classes drawio" src="https://github.com/user-attachments/assets/7de2c635-8c7a-4d55-86d9-317b5f968f3e" />
 
+<br><br>
+**Diagrama de Sequência**
+<br>
+<img width="384" height="800" alt="image" src="https://github.com/user-attachments/assets/f9526202-5d46-4358-9e99-d318e18b540b" />
