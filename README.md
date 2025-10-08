@@ -209,3 +209,7 @@ sequenceDiagram
 <img width="721" height="217" alt="image" src="https://github.com/user-attachments/assets/1158f6ff-4370-433e-8bc0-e4cdd26f9787" />
 
 <img width="780" height="201" alt="image" src="https://github.com/user-attachments/assets/d8d2513e-cda2-4211-bcd2-97e036bc9013" />
+
+## Diagrama de atividades
+### Cadastro de urna
+<img width="1363" height="373" alt="image" src="https://github.com/user-attachments/assets/dc24795e-e27d-4d6a-8a2d-3d024d81cbdb" />
