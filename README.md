@@ -1,6 +1,8 @@
 # UrnaEletronica
 Projeto da aula modelagem de Software. 
 
+Afazer: Mudar diagrama de atores, adicionar a urna pronta para votacao no diagrama de estado e atualizar o diagrama de sequência.
+
 Integrantes:
  - Sebastian Citta 24.123.068-9
  - Juan Manuel Citta 24.123.022-6
@@ -23,26 +25,38 @@ Integrantes:
 | Pós-Condição | Urna terá as informações cadastradas nela e está pronta para ser enviada ao local de votação | 
 | Fluxo Principal | * O gerente acessa o sistema da urna <br> * O gerente entra no módulo UEg <br> * O gerente seleciona região <br> * O gerente entra com ID de uma Urna da região <br> * O gerente carrega a Lista de Candidatos da Região na Urna    |
 
-| Identificação  | UC-02 |
+
+| Identificação | UC - 02 |
+|---|---|
+| Função | Encerrar votação | 
+| Atores | Mesário, Urna | 
+| Prioridade | Essencial | 
+| Pré-Condição | Horário límite alcançado | 
+| Pós-Condição | Urna não aceitará mais votos, e emitirá um relatório físico dos resultados e encaminhará a contagem dos votos à UEg | 
+| Fluxo Principal | * O mesário acessa a urna  <br> * O mesário insere o código de encerramento na urna  <br> * O mesário seleciona o modo de exibição do relatório <br> * A urna imprime o relatório fisíco  <br> * A urna envia a contagem dos votos para a UEg  |  
+
+
+| Identificação  | UC-03 |
 |---|---|
 | Função | Gerar relatório | 
 | Atores | Gerente | 
 | Prioridade | Essencial | 
 | Pré-Condição | Votação concluída | 
 | Pós-Condição | Será gerado um relatório com os resultados da votação, <br> apresentando os detalhes em formato de tabela ou gráficos | 
-| Fluxo Principal | * O gerente acessa o sistema <br> * O gerente entra no módulo UEg <br> * O gerente separa os resultados da votação por UEv <br> * O gerente totaliza os resultados <br> * O gerente seleciona o modo de exibição do relatório <br> * O gerente gera o relatório    |
+| Fluxo Principal | * O gerente acessa o sistema <br> * O gerente entra no módulo UEg <br> * O gerente separa os resultados da votação por região <br> * O gerente separa os votos por cargo eleitoral <br> * O sistema totaliza os votos de cada categoria <br> * O gerente seleciona o modo de exibição do relatório <br> * O sistema gera o relatório  |
 
-| Identificação | UC - 03 |
+
+| Identificação | UC - 04 |
 |---|---|
 | Função | Validação da Urna | 
 | Atores | Mesário, Urna | 
 | Prioridade | Essencial | 
 | Pré-Condição | A urna estar cadastrada | 
-| Pós-Condição | Urna estará pronta para uso na votação | 
-| Fluxo Principal | * O mesário acessa o sistema da urna <br> * O mesário compara as informações da urna com as informações locais [FS01] <br> * O mesário registra a urna como funcional em seu arquivo local | 
-| Fluxo Secundário [FS01] | * Os dados estão incongruentes com as informações do mesário <br> * O mesário registra a urna como não funcional em seu arquivo local e informa a gerência  | 
+| Pós-Condição | Urna estará pronta para uso na votação e a emissão de um certificado da validade urna | 
+| Fluxo Principal | * O mesário acessa o sistema da urna <br> * O mesário compara as informações da urna com as informações locais [FS01] <br> * O mesário registra a urna como funcional em seu arquivo local <br> * O mesário emite um certificado confirmando que a urna está válida | 
+| Fluxo Secundário [FS01] | * Os dados estão incongruentes com as informações do mesário <br> * O mesário registra a urna como não funcional em seu arquivo local e informa a gerência | 
 
-| Identificação | UC - 04 |
+| Identificação | UC - 05 |
 |---|---|
 | Função | Confirmar número de identificação | 
 | Atores | Eleitor, Mesário | 
@@ -53,7 +67,7 @@ Integrantes:
 | Fluxo Secundário [FS01] | * O sistema não reconhece o número inserido <br> * O mesário tenta conseguir outra forma de identificação <br> * Após três tentativas de inserir outra identificação o mesário pede ao eleitor para voltar com um número de identificação válido  |
 
 
-| Identificação | UC - 05 |
+| Identificação | UC - 06 |
 |---|---|
 | Função | Selecionar candidato | 
 | Atores | Eleitor, Urna | 
@@ -213,3 +227,14 @@ sequenceDiagram
 ## Diagrama de atividades
 ### Cadastro de urna
 <img width="1363" height="373" alt="image" src="https://github.com/user-attachments/assets/dc24795e-e27d-4d6a-8a2d-3d024d81cbdb" />
+
+### Encerrar a votação
+<img width="682" height="577" alt="image" src="https://github.com/user-attachments/assets/bf3747e9-beba-4bce-a286-6341ff21872d" />
+
+
+### Gerar relatório da votação
+<img width="619" height="520" alt="image" src="https://github.com/user-attachments/assets/33b956da-6cb4-415d-b5e7-a21d36072cf8" />
+
+### Validação da urna
+<img width="611" height="541" alt="image" src="https://github.com/user-attachments/assets/15c74897-5b40-4231-a8b0-c38da10a6268" />
+
