@@ -74,7 +74,7 @@ Integrantes:
 | Prioridade | Essencial | 
 | Pré-Condição | O eleitor deve possuir número de identificação validado e ter sido guiado a uma urna cadastrada e validada | 
 | Pós-Condição | A urna conterá um candidato selecionado | 
-| Fluxo Principal | * O eleitor ingressa na cabine onde se encontra a urna <br> * O eleitor insere o número do partido e a urna mostra o nome do partido atrelado ao número inserido [FS01, FS02, FS03, FS04] <br> * O eleitor prossegue inserindo o número do candidato, a urna mostra a foto e o nome do candidato <br> * O eleitor confirma o voto selecionado <br> * A urna registra o voto no candidato escolhido e registra separadamente que o eleitor já votou na UEv | 
+| Fluxo Principal |  * A urna mostra a categoria a ser votada [FS01, FS02, FS03, FS04] <br> * O eleitor prossegue inserindo o número do candidato, a urna mostra a foto e o nome do candidato <br> * O eleitor confirma o voto selecionado apertando o botão "CONFRIMA" <br> * A urna registra o voto no candidato escolhido e registra separadamente que o eleitor já votou na UEv | 
 | Fluxo Secundário [FS01] | * Eleitor aperta no botão "BRANCO" sem haver inserido nenhum número <br> * A urna informa que o voto será em branco e pede para o eleitor apertar o botão "CONFIRMA" <br> * A urna registra o voto em branco e registra separadamente que o eleitor já votou na UEv | 
 | Fluxo Secundário [FS02] | * Eleitor insere um número não registrado a nenhum partido <br> * A urna informa que o voto será nulo e pede para o eleitor apertar o botão "CONFIRMA" <br> * A urna registra o voto nulo e registra separadamente que o eleitor já votou na UEv | 
 | Fluxo Secundário [FS03] | * Eleitor insere apenas o número do partido e aperta "CONFIRMA" <br> * A urna informa que o voto será de legenda e pede para o eleitor apertar o botão "CONFIRMA" * A urna registra o voto de legenda e registra separadamente que o eleitor já votou na UEv | 
@@ -233,8 +233,17 @@ sequenceDiagram
 
 
 ### Gerar relatório da votação
-<img width="619" height="520" alt="image" src="https://github.com/user-attachments/assets/33b956da-6cb4-415d-b5e7-a21d36072cf8" />
+<img width="587" height="499" alt="image" src="https://github.com/user-attachments/assets/d5ec5cf1-d687-4eb5-938b-552b77ed55bf" />
+
 
 ### Validação da urna
 <img width="611" height="541" alt="image" src="https://github.com/user-attachments/assets/15c74897-5b40-4231-a8b0-c38da10a6268" />
+
+### Confirmar número de identificação
+
+<img width="1157" height="676" alt="image" src="https://github.com/user-attachments/assets/aa54022b-aebb-4d4a-8a39-b6eaa1f84986" />
+
+### Selecionar candidato
+
+<img width="1048" height="595" alt="image" src="https://github.com/user-attachments/assets/33caae49-7fbd-4d98-9fd7-cf57e83ce2f9" />
 
