@@ -1,7 +1,7 @@
 # UrnaEletronica
 Projeto da aula modelagem de Software. 
 
-Afazer: Mudar diagrama de atores, adicionar a urna pronta para votacao no diagrama de estado e atualizar o diagrama de sequência.
+Afazer:adicionar a urna pronta para votacao no diagrama de estado e atualizar o diagrama de sequência.
 
 Integrantes:
  - Sebastian Citta 24.123.068-9
@@ -11,10 +11,11 @@ Integrantes:
 
 <br>
 
-<img width="568" height="691" alt="Diagrama_urna drawio" src="https://github.com/user-attachments/assets/903618ed-f35c-475b-a544-31efa345730e" />
-
-
+## Diagrama de Atores
+<img width="643" height="589" alt="image" src="https://github.com/user-attachments/assets/00a75dbb-4862-4d29-85b8-ece95b65baa3" />
 <br>
+
+## Casos de Uso
 
 | Identificação | UC - 01 |
 |---|---|
@@ -25,6 +26,7 @@ Integrantes:
 | Pós-Condição | Urna terá as informações cadastradas nela e está pronta para ser enviada ao local de votação | 
 | Fluxo Principal | * O gerente acessa o sistema da urna <br> * O gerente entra no módulo UEg <br> * O gerente seleciona região <br> * O gerente entra com ID de uma Urna da região <br> * O gerente carrega a Lista de Candidatos da Região na Urna    |
 
+<br>
 
 | Identificação | UC - 02 |
 |---|---|
@@ -35,6 +37,7 @@ Integrantes:
 | Pós-Condição | Urna não aceitará mais votos, e emitirá um relatório físico dos resultados e encaminhará a contagem dos votos à UEg | 
 | Fluxo Principal | * O mesário acessa a urna  <br> * O mesário insere o código de encerramento na urna  <br> * O mesário seleciona o modo de exibição do relatório <br> * A urna imprime o relatório fisíco  <br> * A urna envia a contagem dos votos para a UEg  |  
 
+<br>
 
 | Identificação  | UC-03 |
 |---|---|
@@ -45,6 +48,7 @@ Integrantes:
 | Pós-Condição | Será gerado um relatório com os resultados da votação, <br> apresentando os detalhes em formato de tabela ou gráficos | 
 | Fluxo Principal | * O gerente acessa o sistema <br> * O gerente entra no módulo UEg <br> * O gerente separa os resultados da votação por região <br> * O gerente separa os votos por cargo eleitoral <br> * O sistema totaliza os votos de cada categoria <br> * O gerente seleciona o modo de exibição do relatório <br> * O sistema gera o relatório  |
 
+<br>
 
 | Identificação | UC - 04 |
 |---|---|
@@ -55,6 +59,7 @@ Integrantes:
 | Pós-Condição | Urna estará pronta para uso na votação e a emissão de um certificado da validade urna | 
 | Fluxo Principal | * O mesário acessa o sistema da urna <br> * O mesário compara as informações da urna com as informações locais [FS01] <br> * O mesário registra a urna como funcional em seu arquivo local <br> * O mesário emite um certificado confirmando que a urna está válida | 
 | Fluxo Secundário [FS01] | * Os dados estão incongruentes com as informações do mesário <br> * O mesário registra a urna como não funcional em seu arquivo local e informa a gerência | 
+<br>
 
 | Identificação | UC - 05 |
 |---|---|
@@ -65,7 +70,7 @@ Integrantes:
 | Pós-Condição | O eleitor pode prosseguir com o processo para votar | 
 | Fluxo Principal | * O eleitor se apresenta com documento de identificação para o mesário <br> * O mesário acessa o UEv <br> * O mesário insere o número de identificação do documento no sistema <br> * O sistema valida o número e registra o eleitor na UEv e na UEg com nome, número de documento e opcionalmente uma foto [FS01] <br>   * O mesário informa ao eleitor qual urna deverá usar | 
 | Fluxo Secundário [FS01] | * O sistema não reconhece o número inserido <br> * O mesário tenta conseguir outra forma de identificação <br> * Após três tentativas de inserir outra identificação o mesário pede ao eleitor para voltar com um número de identificação válido  |
-
+<br>
 
 | Identificação | UC - 06 |
 |---|---|
@@ -82,13 +87,14 @@ Integrantes:
 
 
 <br><br>
-**Diagrama de Classes**
+## Diagrama de Classes
 <br>
 <img width="600" height="594" alt="Diagrama_de_classes drawio" src="https://github.com/user-attachments/assets/7de2c635-8c7a-4d55-86d9-317b5f968f3e" />
 
 <br><br>
-**Diagrama de Sequência**
+## Diagrama de Sequência
 <br>
+
 ```mermaid
 sequenceDiagram
     %% UC-01 – Cadastrar a Urna
@@ -218,11 +224,16 @@ sequenceDiagram
 ```
 
 
-**Diagrama de Estados**
+## Diagrama de Estados
 <br>
 <img width="721" height="217" alt="image" src="https://github.com/user-attachments/assets/1158f6ff-4370-433e-8bc0-e4cdd26f9787" />
+<br>
 
 <img width="780" height="201" alt="image" src="https://github.com/user-attachments/assets/d8d2513e-cda2-4211-bcd2-97e036bc9013" />
+<br>
+
+<img width="542" height="219" alt="image" src="https://github.com/user-attachments/assets/cedad9b2-8397-40a5-b3da-b84bb9bd1348" />
+<br>
 
 ## Diagrama de atividades
 ### Cadastro de urna
