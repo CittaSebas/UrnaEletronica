@@ -87,8 +87,7 @@ Integrantes:
 <br><br>
 ## Diagrama de Classes
 <br>
-<img width="609" height="771" alt="image" src="https://github.com/user-attachments/assets/66b66777-3e7c-4f77-a197-d3370f154b48" />
-
+<img width="933" height="809" alt="image" src="https://github.com/user-attachments/assets/5336c14f-bc85-476d-9493-7dd8d51b91e3" />
 
 <br><br>
 ## Diagramas de Sequência
@@ -144,13 +143,13 @@ sequenceDiagram
 sequenceDiagram
     actor Mesário
     participant Eleitor
-    participant Urna
+    participant Banco de eleitores
 
     Mesário->>Eleitor: solicitarNumeroTitulo()
     Eleitor-->>Mesário: fornecerNumeroTitulo(numero)
 
-    Mesário->>Urna: validarNumeroTitulo(numero)
-    Urna-->>Mesário: autorizacaoDeVoto()
+    Mesário->>Banco de eleitores: validarNumeroTitulo(numero)
+    Banco de eleitores-->>Mesário: EnviarInfoEleitor
     Mesário->>Eleitor: liberarUrna()
 
     alt Numero de titulo inválido
