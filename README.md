@@ -57,7 +57,7 @@ Integrantes:
 | Prioridade | Essencial | 
 | Pré-Condição | A urna estar cadastrada | 
 | Pós-Condição | Urna estará pronta para uso na votação e a emissão de um certificado da validade urna | 
-| Fluxo Principal | * O mesário acessa o sistema da urna <br> * O mesário compara as informações da urna com as informações locais [FS01] <br> * O mesário registra a urna como funcional em seu arquivo local <br> * O mesário emite um certificado confirmando que a urna está válida | 
+| Fluxo Principal | * O mesário acessa o sistema da urna <br> * O mesário compara as informações da urna com as informações locais [FS01] <br> * O mesário registra a urna como funcional no UEv <br> * O mesário emite um certificado confirmando que a urna está válida | 
 | Fluxo Secundário [FS01] | * Os dados estão incongruentes com as informações do mesário <br> * O mesário registra a urna como não funcional em seu arquivo local e informa a gerência | 
 <br>
 
@@ -257,4 +257,9 @@ sequenceDiagram
 ### Selecionar candidato
 
 <img width="1048" height="595" alt="image" src="https://github.com/user-attachments/assets/33caae49-7fbd-4d98-9fd7-cf57e83ce2f9" />
+
+
+## Diagrama de Componentes
+
+<img width="920" height="737" alt="image" src="https://github.com/user-attachments/assets/16bb57ac-4501-4937-b4f1-36792c5227ed" />
 
