@@ -1,8 +1,6 @@
 # UrnaEletronica
 Projeto da aula modelagem de Software. 
 
-Afazer:adicionar a urna pronta para votacao no diagrama de estado e atualizar o diagrama de sequência.
-
 Integrantes:
  - Sebastian Citta 24.123.068-9
  - Juan Manuel Citta 24.123.022-6
@@ -26,20 +24,10 @@ Integrantes:
 | Pós-Condição | Urna terá as informações cadastradas nela e está pronta para ser enviada ao local de votação | 
 | Fluxo Principal | * O gerente acessa o sistema da urna <br> * O gerente entra no módulo UEg <br> * O gerente seleciona região <br> * O gerente entra com ID de uma Urna da região <br> * O gerente carrega a Lista de Candidatos da Região na Urna    |
 
-<br>
-
-| Identificação | UC - 02 |
-|---|---|
-| Função | Encerrar votação | 
-| Atores | Mesário, Urna | 
-| Prioridade | Essencial | 
-| Pré-Condição | Horário límite alcançado | 
-| Pós-Condição | Urna não aceitará mais votos, e emitirá um relatório físico dos resultados e encaminhará a contagem dos votos à UEg | 
-| Fluxo Principal | * O mesário acessa a urna  <br> * O mesário insere o código de encerramento na urna  <br> * O mesário seleciona o modo de exibição do relatório <br> * A urna imprime o relatório fisíco  <br> * A urna envia a contagem dos votos para a UEg  |  
 
 <br>
 
-| Identificação  | UC-03 |
+| Identificação  | UC-02 |
 |---|---|
 | Função | Gerar relatório | 
 | Atores | Gerente | 
@@ -50,7 +38,7 @@ Integrantes:
 
 <br>
 
-| Identificação | UC - 04 |
+| Identificação | UC - 03 |
 |---|---|
 | Função | Validação da Urna | 
 | Atores | Mesário, Urna | 
@@ -61,18 +49,18 @@ Integrantes:
 | Fluxo Secundário [FS01] | * Os dados estão incongruentes com as informações do mesário <br> * O mesário registra a urna como não funcional em seu arquivo local e informa a gerência | 
 <br>
 
-| Identificação | UC - 05 |
+| Identificação | UC - 04 |
 |---|---|
 | Função | Confirmar número de identificação | 
-| Atores | Eleitor, Mesário | 
+| Atores | Eleitor, Mesário , Urna| 
 | Prioridade | Essencial | 
 | Pré-Condição | Deve haver uma urna validada no local | 
 | Pós-Condição | O eleitor pode prosseguir com o processo para votar | 
-| Fluxo Principal | * O eleitor se apresenta com documento de identificação para o mesário <br> * O mesário acessa o UEv <br> * O mesário insere o número de identificação do documento no sistema <br> * O sistema valida o número e registra o eleitor na UEv e na UEg com nome, número de documento e opcionalmente uma foto [FS01] <br>   * O mesário informa ao eleitor qual urna deverá usar | 
-| Fluxo Secundário [FS01] | * O sistema não reconhece o número inserido <br> * O mesário tenta conseguir outra forma de identificação <br> * Após três tentativas de inserir outra identificação o mesário pede ao eleitor para voltar com um número de identificação válido  |
+| Fluxo Principal | * O eleitor se apresenta com documento de identificação para o mesário <br> * O mesário acessa o sistema da urna (UEv) <br> * O mesário insere o número de identificação do documento no sistema <br> * O sistema valida o número [FS01] <br>   * O mesário informa ao eleitor qual urna deverá usar | 
+| Fluxo Secundário [FS01] | * O sistema não reconhece o número inserido <br> * O mesário pede ao eleitor para voltar com um número de identificação válido  |
 <br>
 
-| Identificação | UC - 06 |
+| Identificação | UC - 05 |
 |---|---|
 | Função | Selecionar candidato | 
 | Atores | Eleitor, Urna | 
@@ -85,145 +73,150 @@ Integrantes:
 | Fluxo Secundário [FS03] | * Eleitor insere apenas o número do partido e aperta "CONFIRMA" <br> * A urna informa que o voto será de legenda e pede para o eleitor apertar o botão "CONFIRMA" * A urna registra o voto de legenda e registra separadamente que o eleitor já votou na UEv | 
 | Fluxo Secundário [FS04] | * Eleitor aperta no botão "CORRIGE" <br> * A urna apagará o número inserido | 
 
+<br>
+
+| Identificação | UC - 06 |
+|---|---|
+| Função | Encerrar votação | 
+| Atores | Mesário, Urna | 
+| Prioridade | Essencial | 
+| Pré-Condição | Horário límite alcançado | 
+| Pós-Condição | Urna não aceitará mais votos, e emitirá um relatório físico dos resultados e encaminhará a contagem dos votos à UEg | 
+| Fluxo Principal | * O mesário acessa a urna  <br> * O mesário insere o código de encerramento na urna  <br> * O mesário seleciona o modo de exibição do relatório <br> * A urna imprime o relatório fisíco  <br> * A urna envia a contagem dos votos para a UEg  |  
 
 <br><br>
 ## Diagrama de Classes
 <br>
-<img width="600" height="594" alt="Diagrama_de_classes drawio" src="https://github.com/user-attachments/assets/7de2c635-8c7a-4d55-86d9-317b5f968f3e" />
+<img width="609" height="771" alt="image" src="https://github.com/user-attachments/assets/66b66777-3e7c-4f77-a197-d3370f154b48" />
+
 
 <br><br>
-## Diagrama de Sequência
+## Diagramas de Sequência
 <br>
 
-```mermaid
-sequenceDiagram
-    %% UC-01 – Cadastrar a Urna
-    actor Gerente
-    participant Sistema
-    participant UEg
-
-    Gerente->>+Sistema: acessarSistema()
-    Sistema-->>-Gerente: exibeMenu()
-
-    Gerente->>+UEg: acessarModulo()
-    UEg-->>-Gerente: exibeOpcoes()
-
-    Gerente->>+UEg: selecionarRegiao()
-    UEg-->>-Gerente: listaUrnasRegiao()
-
-    Gerente->>+UEg: inserirIDUrna(id_urna)
-    UEg-->>-Gerente: urnaSelecionada()
-
-    Gerente->>+UEg: carregarListaCandidatos(regiao)
-    UEg-->>-Gerente: urnaPronta()
-```
+### UC_01
 ```mermaid
 sequenceDiagram
     actor Gerente
-    participant Sistema
     participant UEg
-Gerente->>+Sistema: acessarSistema()
-    Sistema-->>-Gerente: exibeMenu()
 
-    Gerente->>+UEg: acessarModulo()
-    UEg-->>-Gerente: exibeOpcoes()
-
-    Gerente->>+UEg: separarResultadosPorUEv()
-    UEg-->>-Gerente: resultadosSeparados()
-
-    Gerente->>+UEg: totalizarResultados()
-    UEg-->>-Gerente: totaisCalculados()
-
-    Gerente->>+UEg: selecionarModoExibicao()
-    UEg-->>-Gerente: preparaRelatorio()
-
-    Gerente->>+UEg: gerarRelatorio()
-    UEg-->>-Gerente: relatorioGerado()
+    Gerente->>UEg: acessarModulo()
+    Gerente->>UEg: selecionarRegiao()
+    Gerente->>UEg: inserirIDUrna(id_urna)
+    Gerente->>UEg: carregarListaCandidatos(regiao)
+    UEg-->>Gerente: cadastrarUrna()
 ```
+### UC_02
 
 ```mermaid
 sequenceDiagram
-    actor Mesario
+    actor Gerente
+    participant UEg
+
+    Gerente->>UEg: acessarModulo()
+    Gerente->>UEg: separarResultadosPorUEv()
+    Gerente->>UEg: totalizarResultados()
+    Gerente->>UEg: selecionarModoExibicao()
+    Gerente->>UEg: preparaRelatorio()
+    Gerente->>UEg: gerarRelatorio()
+    UEg-->>Gerente: relatorioGerado()
+```
+
+### UC_03
+```mermaid
+sequenceDiagram
+    actor Mesário
     participant Urna
-    participant ArquivoLocal
 
-    Mesario->>+Urna: acessarSistema()
-    Urna-->>-Mesario: exibeInformacoes()
-
-    Mesario->>+Urna: compararInformacoes()
-    alt Dados Congruentes (Fluxo Principal)
-        Mesario->>+ArquivoLocal: registrarUrnaFuncional()
-        ArquivoLocal-->>-Mesario: statusOK
-    else Dados Incongruentes [FS01]
-        Mesario->>+ArquivoLocal: registrarUrnaNaoFuncional()
-        ArquivoLocal-->>-Mesario: statusOK
-        Mesario->>+Gerente: informarIncongruencia()
+    Mesário->>Urna: validarUrna()
+    Urna-->>Mesário: exibirCandidatos()
+    Mesário->>Urna: compararInformacoes()
+    Mesário->>UEg: registrarUrnaFuncional()
+    alt Dados Incongruenntes
+        Mesário->>UEg: registrarUrnaNaoFuncional()
+        Mesário->>UEg: informarIncongruencia()
     end
 
 ```
 
+### UC_04
 ```mermaid
 sequenceDiagram
-    actor Mesario
+    actor Mesário
+    participant Eleitor
     participant Urna
-    participant ArquivoLocal
-    Mesario->>+Urna: solicitarIdentificacaoEleitor()
-    Urna-->>-Mesario: solicitarNumeroTitulo()
 
-    Mesario->>+Urna: inserirNumeroTitulo(numero)
-    Urna->>+UEg: validarNumeroTitulo(numero)
-    UEg-->>-Urna: validacaoOK
+    Mesário->>Eleitor: solicitarNumeroTitulo()
+    Eleitor-->>Mesário: fornecerNumeroTitulo(numero)
 
-    Urna-->>-Mesario: autorizacaoDeVoto()
-    Mesario->>+Eleitor: autorizarVoto()
+    Mesário->>Urna: validarNumeroTitulo(numero)
+    Urna-->>Mesário: autorizacaoDeVoto()
+    Mesário->>Eleitor: liberarUrna()
 
+    alt Numero de titulo inválido
+       Mesário-->>Eleitor: solicitarDocValido()
+    end
 ```
-
+### UC_05
 ```mermaid
 sequenceDiagram
     actor Eleitor
-    participant UEv
+    participant Urna
+    participant UEg
 
-    Eleitor->>+Urna: inserirNumeroPartido(numero)
-    Urna-->>-Eleitor: exibeNomePartido(partido)
+    Eleitor->>Urna: inserirNumeroPartido()
+    Urna-->>Eleitor: exibirNomePartido()
 
-    Eleitor->>+Urna: inserirNumeroCandidato(numero)
-    Urna-->>-Eleitor: exibeDadosCandidato(nome, foto)
+    Eleitor->>Urna: inserirNumeroCandidato()
+    Urna-->>Eleitor: exibirDadosCandidato()
 
-    alt Voto em Candidato (Fluxo Principal)
-        Eleitor->>+Urna: confirmarVoto()
-        Urna->>Urna: registrarVoto(candidato)
-        Urna->>+UEv: registrarEleitorVotou(id_eleitor)
-        UEv-->>-Urna: statusOK
-        Urna-->>-Eleitor: emiteSomConfirmacao()
+    %% Fluxo principal: Voto em Candidato
+    Eleitor->>Urna: confirmarVoto()
+    Urna->>Urna: registrarVoto()
+    Urna->>UEg: receberVotos()
+    UEg-->>Urna: statusOK
+    Urna-->>Eleitor: emiteSomConfirmacao()
 
-    else Voto em Branco [FS01]
-        Eleitor->>+Urna: pressionarBranco()
-        Urna-->>-Eleitor: solicitaConfirmacao()
-        Eleitor->>+Urna: confirmarVoto()
+    %% Fluxos alternativos
+    alt Voto em Branco
+        Eleitor->>Urna: pressionarBranco()
+        Urna-->>Eleitor: solicitarConfirmacao()
+        Eleitor->>Urna: confirmarVoto()
         Urna->>Urna: registrarVotoBranco()
-        Urna->>+UEv: registrarEleitorVotou(id_eleitor)
-        UEv-->>-Urna: statusOK
-        Urna-->>-Eleitor: emiteSomConfirmacao()
-
-    else Voto Nulo [FS02]
-        Eleitor->>+Urna: inserirNumeroInvalido()
-        Urna-->>-Eleitor: informaVotoNulo()
-        Eleitor->>+Urna: confirmarVoto()
+        Urna->>UEg: receberVotos()
+        UEg-->>Urna: statusOK
+        Urna-->>Eleitor: emiteSomConfirmacao()
+    else Voto Nulo
+        Eleitor->>Urna: inserirNumeroInvalido()
+        Urna-->>Eleitor: informaVotoNulo()
+        Eleitor->>Urna: confirmarVoto()
         Urna->>Urna: registrarVotoNulo()
-        Urna->>+UEv: registrarEleitorVotou(id_eleitor)
-        UEv-->>-Urna: statusOK
-        Urna-->>-Eleitor: emiteSomConfirmacao()
+        Urna->>UEg: receberVotos()
+        UEg-->>Urna: statusOK
+        Urna-->>Eleitor: emiteSomConfirmacao()
     end
 
-    opt Correção [FS04]
-        Eleitor->>+Urna: pressionarCorrige()
+    opt Correção
+        Eleitor->>Urna: pressionarCorrige()
         Urna->>Urna: limparDados()
-        Urna-->>-Eleitor: exibeTelaInicial()
+        Urna-->>Eleitor: exibeTelaInicial()
     end
 ```
+### UC_06
+```mermaid
+sequenceDiagram
+    actor Mesário
+    actor Urna
+    actor UEg
 
+    Mesário-->>Urna: encerrarVotacao()
+    Urna-->>Mesário: selecionarModoExibicao()
+    Mesário-->>Urna: escolherModoExibicao()
+    Urna-->>Mesário: imprimirRelatório()
 
+    Urna-->>UEg: enviarVotos()
+    UEg-->>Urna: receberVotos()
+```
 ## Diagrama de Estados
 <br>
 <img width="721" height="217" alt="image" src="https://github.com/user-attachments/assets/1158f6ff-4370-433e-8bc0-e4cdd26f9787" />
