@@ -22,7 +22,7 @@ Integrantes:
 | Prioridade | Essencial | 
 | Pré-Condição | Urna em estado funcional | 
 | Pós-Condição | Urna terá as informações cadastradas nela e está pronta para ser enviada ao local de votação | 
-| Fluxo Principal | * O gerente acessa o sistema da urna <br> * O gerente entra no módulo UEg <br> * O gerente seleciona região <br> * O gerente entra com ID de uma Urna da região <br> * O gerente carrega a Lista de Candidatos da Região na Urna    |
+| Fluxo Principal | * O gerente entra no módulo UEg <br> * O gerente seleciona região <br> * O gerente entra com ID de uma Urna da região <br> * O gerente carrega a Lista de Candidatos da Região na Urna    |
 
 
 <br>
@@ -34,7 +34,7 @@ Integrantes:
 | Prioridade | Essencial | 
 | Pré-Condição | Votação concluída | 
 | Pós-Condição | Será gerado um relatório com os resultados da votação, <br> apresentando os detalhes em formato de tabela ou gráficos | 
-| Fluxo Principal | * O gerente acessa o sistema <br> * O gerente entra no módulo UEg <br> * O gerente separa os resultados da votação por região <br> * O gerente separa os votos por cargo eleitoral <br> * O sistema totaliza os votos de cada categoria <br> * O gerente seleciona o modo de exibição do relatório <br> * O sistema gera o relatório  |
+| Fluxo Principal | * O gerente acessa o sistema UEg <br> * O gerente entra no módulo "Gerar relatório" <br> * O gerente separa os resultados da votação por região <br> * O gerente separa os votos por cargo eleitoral <br> * O sistema totaliza os votos de cada categoria <br> * O gerente seleciona o modo de exibição do relatório <br> * O sistema gera o relatório  |
 
 <br>
 
@@ -45,7 +45,7 @@ Integrantes:
 | Prioridade | Essencial | 
 | Pré-Condição | A urna estar cadastrada | 
 | Pós-Condição | Urna estará pronta para uso na votação e a emissão de um certificado da validade urna | 
-| Fluxo Principal | * O mesário acessa o sistema da urna <br> * O mesário compara as informações da urna com as informações locais [FS01] <br> * O mesário registra a urna como funcional no UEv <br> * O mesário emite um certificado confirmando que a urna está válida | 
+| Fluxo Principal | * O mesário acessa o sistema UEv <br> * O mesário compara as informações da urna com as informações locais [FS01] <br> * O mesário registra a urna como funcional no UEg  <br> * O mesário emite um certificado confirmando que a urna está válida | 
 | Fluxo Secundário [FS01] | * Os dados estão incongruentes com as informações do mesário <br> * O mesário registra a urna como não funcional em seu arquivo local e informa a gerência | 
 <br>
 
@@ -56,7 +56,7 @@ Integrantes:
 | Prioridade | Essencial | 
 | Pré-Condição | Deve haver uma urna validada no local | 
 | Pós-Condição | O eleitor pode prosseguir com o processo para votar | 
-| Fluxo Principal | * O eleitor se apresenta com documento de identificação para o mesário <br> * O mesário acessa o sistema da urna (UEv) <br> * O mesário insere o número de identificação do documento no sistema <br> * O sistema valida o número [FS01] <br>   * O mesário informa ao eleitor qual urna deverá usar | 
+| Fluxo Principal | * O eleitor se apresenta com documento de identificação para o mesário <br> * O mesário acessa o Banco de Eleitores <br> * O mesário insere o número de identificação do documento no sistema <br> * O sistema valida o número [FS01] <br>   * O mesário informa ao eleitor qual urna deverá usar  | 
 | Fluxo Secundário [FS01] | * O sistema não reconhece o número inserido <br> * O mesário pede ao eleitor para voltar com um número de identificação válido  |
 <br>
 
@@ -82,7 +82,7 @@ Integrantes:
 | Prioridade | Essencial | 
 | Pré-Condição | Horário límite alcançado | 
 | Pós-Condição | Urna não aceitará mais votos, e emitirá um relatório físico dos resultados e encaminhará a contagem dos votos à UEg | 
-| Fluxo Principal | * O mesário acessa a urna  <br> * O mesário insere o código de encerramento na urna  <br> * O mesário seleciona o modo de exibição do relatório <br> * A urna imprime o relatório fisíco  <br> * A urna envia a contagem dos votos para a UEg  |  
+| Fluxo Principal | * O mesário acessa o sistema UEv  <br> * O mesário insere o código de encerramento na urna  <br> * O mesário seleciona o modo de exibição do relatório <br> * A urna imprime o relatório fisíco  <br> * A urna envia a contagem dos votos para a UEg  |  
 
 <br><br>
 ## Diagrama de Classes
@@ -240,11 +240,14 @@ sequenceDiagram
 
 
 ### Validação da urna
-<img width="611" height="541" alt="image" src="https://github.com/user-attachments/assets/15c74897-5b40-4231-a8b0-c38da10a6268" />
+
+<img width="643" height="513" alt="image" src="https://github.com/user-attachments/assets/2aa20c50-506d-4a7c-812f-93e3ac35e25f" />
+
 
 ### Confirmar número de identificação
 
-<img width="1157" height="676" alt="image" src="https://github.com/user-attachments/assets/aa54022b-aebb-4d4a-8a39-b6eaa1f84986" />
+<img width="905" height="548" alt="image" src="https://github.com/user-attachments/assets/b76b62ff-0bf9-4c96-b784-f544112ac97a" />
+
 
 ### Selecionar candidato
 
@@ -253,5 +256,7 @@ sequenceDiagram
 
 ## Diagrama de Componentes
 
-<img width="920" height="737" alt="image" src="https://github.com/user-attachments/assets/16bb57ac-4501-4937-b4f1-36792c5227ed" />
+<img width="1072" height="754" alt="image" src="https://github.com/user-attachments/assets/e90c7388-f96f-4150-95b0-da5ca0383044" />
+
+
 
